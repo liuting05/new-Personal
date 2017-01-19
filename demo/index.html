@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="pragma" content="no-cache">
+  <meta http-equiv="cache-control" content="no-cache">
+  <title></title>
+  <meta http-equiv="expires" content="0">
+  <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+  <meta http-equiv="description" content="This is my page">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <link rel="stylesheet" href="style/font-awesome.css">
+  <link rel="stylesheet" href="style/index.css">
+  <script src="script/zepto.js" type="text/javascript"></script>
+  <script src="script/jquery-1.8.3.min.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    $(function(){
+      $('#js-enter').click(function(){
+        $(this).css('animation', 'boxShadowOut 2.5s normal')
+        $('.float-mask-top').css('animation', 'slideDowmOver 2.5s 0.5s normal')
+        $('.float-mask-bottom').css('animation', 'slideUpOver 2.5s 0.5s normal')
+        $('.float-company').css('animation', 'slideLeft 1s normal')
+        $('.float-position').css('animation', 'slideLeft 1s 0.3s normal')
+        $('.float-name').css('animation', 'slideLeft 1s 0.5s normal')
+        $('#show').css('animation', 'slideLeft 1s 0.5s normal')
+        setTimeout(function(){
+          $('#js-enter').hide()
+        }, 2500)
+        setTimeout(function(){
+          $('.float-mask-top').hide()
+          $('.float-mask-bottom').hide()
+        }, 3000)
+        setTimeout(function(){
+          $('.float-company').hide()
+          $('.float-position').hide()
+          $('.float-name').hide()
+        }, 1000)
+        setTimeout(function(){
+          $("#show").show()
+        }, 3000)
+      })
+      $("#show").children(".big-content").children("div").each(function(idx,d){
+        var _this=this;
+        if(idx!==1){
+          $(_this).children("p").click(function(){
+            $("#show").children(".big-content").children("div").each(function(){
+              $(this).children().eq(1).slideUp(600);
+            })
+            $(_this).children().eq(1).slideDown(600);
+          })
+        }
+      })
+      /*//个人信息
+      $("#show").find(".datum_list").click(function(){
+          $("#show").find(".datum_list").find("ul").slideToggle(600);
+      })*/
+      //技能
+      var countWidth = $("#show").find(".technical_content").find("li").find("div").width();
+      $("#show").find("#technical").find("p").click(function(){
+          $("#show").children(".big-content").children("div").each(function(){
+            $(this).children().eq(1).slideUp(600);
+          })
+          $("#show").find(".technical_content").slideDown(600);
+          setTimeout(function(){        
+            $('.js').find("div").find("span").animate({width: countWidth * 0.6}, 1010)
+            $('.ht').find("div").find("span").animate({width: countWidth * 0.75}, 1010)
+            $('.css').find("div").find("span").animate({width: countWidth * 0.85}, 1010)
+        }, 600)
+      })
+      /*//印象标签
+      $("#show").find("#mark").click(function(){
+          $("#show").find("#mark").find("ul").slideToggle(600);
+      })
+      //工作经历
+      $("#show").find("#experience").click(function(){
+          $("#show").find("#experience").find(".content").slideToggle(600);
+      })
+      //作品
+      $("#show").find("#work").click(function(){
+          $("#show").find("#work").find(".content").slideToggle(600);
+      })*/
+    })
+  </script>
+</head>
+<body>
+  <div class="float-mask-top"></div>
+  <div class="float-mask-bottom"></div>
+  <div class="float-company">Amaze云适配</div>
+  <div class="float-position">WEB前端开发工程师</div>
+  <div class="float-name">刘婷</div>
+  <div class="float-enter" id="js-enter">点击进入</div>
+  <div class="main">
+    <div id="show">
+        <div id="datum">
+        <!-- <div id="background"></div> -->
+          <div class="datum_content" id='#top'>
+            <p>WEB前端工程师</p>
+            <p></p>
+            <p>刘婷</p>
+          </div>
+        </div>
+      <div class='big-content'>
+        <div class="datum_list">
+          <p>个人信息</p>
+          <ul>
+            <li><span>天津市 武清</span></li>
+            <li><span>1990.05</span></li>
+            <!-- <li><span>150720</span></li> -->
+            <li><span>991172793@qq.com</span></li>
+            <li><span>13622116054</span></li>
+            <!-- <li><span>jdjoj</span></li> -->
+            <li><span>本科</span></li>
+          </ul>
+        </div>
+        <div id="technical">
+          <p>技能</p>
+          <div class="technical_content">
+            <ul>
+              <li class='js'><span>JavaScript</span><div><span>60%</span></div></li>
+              <li class='ht'><span>Html</span><div><span>75%</span></div></li>
+              <li class='css'><span>Css</span><div><span>85%</span></div></li>
+            </ul>
+          </div>
+        </div>
+        <div id="mark">
+          <p>印象标签</p>
+          <ul>
+            <li>宅</li>
+            <li>90后</li>
+          </ul>
+        </div>
+        <div id="experience">
+          <p>工作经历</p>
+          <div class="content">
+            <ul>
+              <li>
+                <p><img src="img/logo.jpg" alt="图片1"><span>天津美通云动</span><span>2015.07.20 —— 至今</span></p>
+                <div>
+                  于2015年7月份加入美通云动公司，至今一直从事网站适配工作。
+                </div>
+              </li>
+              <!-- <li>
+                <p><img src="img/004.jpg" alt="图片1"><span>XXXXXX</span><span>2015.01.20 —— 2015.07.01</span></p>
+                <div>
+                  hdahdoahddxjadj
+                </div>
+              </li> -->
+            </ul>
+          </div>
+        </div>
+        <div id="work">
+          <p>作品</p>
+          <div class="content">
+            <ul>
+              <li>
+                <a href="###"><img src="img/no.gif" alt="图片1"><span>暂无</span></a>
+              </li>
+              <li>
+                <a href="###"><img src="img/no.gif" alt="图片2"><span>暂无</span></a>
+              </li>
+              <li>
+                <a href="###"><img src="img/no.gif" alt="图片3"><span>暂无</span></a>
+              </li>
+              <li>
+                <a href="###"><img src="img/no.gif" alt="图片4"><span>暂无</span></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="top">
+        <a href="#top"></a>
+      </div> -->
+  </div>
+  </div>
+</body>
+</html>
